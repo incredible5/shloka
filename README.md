@@ -1,4 +1,4 @@
-##How to run the solution
+## How to run the solution
 
 * Clone the repo using ```git clone https://github.com/incredible5/shloka.git```
 
