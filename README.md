@@ -2,7 +2,7 @@
 
 * Clone the repo using ```git clone https://github.com/incredible5/shloka.git```
 
-* Then run the following commands
+* Run the following commands
 
 ```
 npm install
