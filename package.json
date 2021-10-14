@@ -1,0 +1,23 @@
+{
+  "name": "shloka",
+  "version": "1.0.0",
+  "description": "",
+  "main": "solution.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/incredible5/shloka.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/incredible5/shloka/issues"
+  },
+  "homepage": "https://github.com/incredible5/shloka#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
