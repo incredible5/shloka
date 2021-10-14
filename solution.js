@@ -1,14 +1,15 @@
-const util = require("util");
 const readLineSync = require("readline-sync");
+// const util = require("util");
+
+const {
+    ALL_COURSES,
+    ALL_LEVELS,
+    EXCEPT_KEY_FOR_COURSES,
+    EXCEPT_KEY_FOR_LEVELS,
+} = require("./constants.js");
+
 const data = require("./data.json");
-
 // console.log(util.inspect(data, false, null, true));
-
-const allCourses = ["Medical", "Dental", "Ayurveda"];
-const allLevels = ["UG", "PG", "DIPLOMA", "Ph.D"];
-
-const exceptKeyForCourse = "ALL_COURSES​";
-const exceptKeyForLevel = "ALL_LEVEL​";
 
 const isInputValid = (key, referenceObj, exceptKey) => {
     return key == exceptKey || referenceObj[key];
@@ -66,21 +67,26 @@ const main = () => {
     printOptionsFromKeys(
         refinedData,
         keyValueSet,
-        exceptKeyForCourse,
-        allCourses
+        EXCEPT_KEY_FOR_COURSES,
+        ALL_COURSES
     );
 
-    let course = getUserInput("course", keyValueSet, exceptKeyForCourse);
+    let course = getUserInput("course", keyValueSet, EXCEPT_KEY_FOR_COURSES);
 
-    refinedData = refinedData[course] ? {...refinedData[course], ...refinedData[exceptKeyForCourse] } :
-        refinedData[exceptKeyForCourse];
+    refinedData = refinedData[course] ? {...refinedData[course], ...refinedData[EXCEPT_KEY_FOR_COURSES] } :
+        refinedData[EXCEPT_KEY_FOR_COURSES];
 
-    printOptionsFromKeys(refinedData, keyValueSet, exceptKeyForLevel, allLevels);
+    printOptionsFromKeys(
+        refinedData,
+        keyValueSet,
+        EXCEPT_KEY_FOR_LEVELS,
+        ALL_LEVELS
+    );
 
-    let level = getUserInput("level", keyValueSet, exceptKeyForLevel);
+    let level = getUserInput("level", keyValueSet, EXCEPT_KEY_FOR_LEVELS);
 
-    refinedData = refinedData[level] ? {...refinedData[level], ...refinedData[exceptKeyForLevel] } :
-        refinedData[exceptKeyForLevel];
+    refinedData = refinedData[level] ? {...refinedData[level], ...refinedData[EXCEPT_KEY_FOR_LEVELS] } :
+        refinedData[EXCEPT_KEY_FOR_LEVELS];
 
     calculateTotalFee(refinedData);
 };
