@@ -37,7 +37,9 @@ const getUserInput = (field, keySet, exceptKey) => {
     );
     while (!isInputValid(inp, keySet, exceptKey)) {
         console.log("Invalid option selected! Please try again");
-        inp = readLineSync.question("Select fee type from the above list\n");
+        inp = readLineSync.question(
+            `Select the number corresponding to the desired ${field} from the above list\n`
+        );
     }
     return keySet[inp];
 };
@@ -58,12 +60,14 @@ const main = () => {
 
     refinedData = refinedData[feeType];
 
+    keyValueSet = {};
     printOptionsFromKeys(refinedData, keyValueSet);
 
     let nationality = getUserInput("nationality", keyValueSet);
 
     refinedData = refinedData[nationality];
 
+    keyValueSet = {};
     printOptionsFromKeys(
         refinedData,
         keyValueSet,
@@ -76,6 +80,7 @@ const main = () => {
     refinedData = refinedData[course] ? {...refinedData[course], ...refinedData[EXCEPT_KEY_FOR_COURSES] } :
         refinedData[EXCEPT_KEY_FOR_COURSES];
 
+    keyValueSet = {};
     printOptionsFromKeys(
         refinedData,
         keyValueSet,
